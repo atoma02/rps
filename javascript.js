@@ -21,10 +21,10 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'ROCK' && computerSelection == 'SCISSORS')?
         'You win! Rock beats scissors!':
         (playerSelection == 'ROCK' && computerSelection == 'ROCK')?
-        'Tie! Fight to the death!':
+        'Draw!':
         /*playerSelection PAPER */
         (playerSelection == 'PAPER' && computerSelection == 'PAPER')?
-        'Tie! Fight to the death!':
+        'Draw!':
         (playerSelection == 'PAPER' && computerSelection == 'ROCK')?
         'You win! Paper beats rock!':
         (playerSelection == 'PAPER' && computerSelection == 'SCISSORS')?
@@ -35,10 +35,35 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'SCISSORS' && computerSelection == 'PAPER')?
         'You win! Scissors beat paper!':
         (playerSelection == 'SCISSORS' && computerSelection == 'SCISSORS')?
-        'Tie! Fight to the death!':'Something is terribly wrong!';
+        'Draw!':'Check your spelling..';
+}
+/*function to play 5 round game */
+function game(){
+    for (let i = 0; i<5; i++){
+        const playerSelection = changeToUpperCase(window.prompt('Rock, Paper, or Scissors?'));
+        const computerSelection = computerPlay();
+        console.log('You chose',playerSelection, 'and the computer chose',computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+        /**Point incrementation*/
+        (declaration.startsWith('You win!'))? playerScore = playerScore +1 :
+        (declaration.startsWith('You lose!'))? computerScore =  computerScore + 1 :
+        'No point';
+        console.log( 'Player:', playerScore, 'Computer:', computerScore); 
+        
     }
+}
+let playerScore = 0;
+let computerScore = 0;
+console.log(game());
 
-const playerSelection = changeToUpperCase('PaPer');
-const computerSelection = computerPlay();
-console.log(computerSelection)
-console.log(playRound(playerSelection, computerSelection));
+let finalScore = (`Player: ${playerScore} Computer: ${computerScore}`);
+let gameMessage = (playerScore > computerScore)?'The Player won!':
+(playerScore < computerScore)?'The Computer won!':
+"It's a Draw..";
+console.log(finalScore);
+
+
+
+
+
+

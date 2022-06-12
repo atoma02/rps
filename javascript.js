@@ -8,19 +8,6 @@ function computerPlay(){
     return computerChoice;
 }
 
-/*function to uppercase text */
-/*function changeToUpperCase(founder){
-    return founder.toUpperCase();
-}
-*/
-/*let playerPlay = (player)=> {
-    let playerSelection=player;   
-    const computerSelection = computerPlay();
-    console.log('You chose',playerSelection, 'and the computer chose',computerSelection);
-    const winner = (playRound(playerSelection, computerSelection));
-    return winner;
-}*/
-
 /*function to play one round of rock, paper, scissosrs*/
 let computerSelection;
 let declaration;
@@ -55,16 +42,7 @@ let pointSystem = () =>{
     (declaration.startsWith('You lose!'))? computerScore =  computerScore + 1 :
     'No point';
 }
-
-/*disables button once score is reached*/
-let endGame = ()=> {
-    let buttons = document.querySelectorAll('button'); 
-    buttons.forEach((button) => {
-        button.disabled = true;
-    })
-    reset();
-}
-
+ /*creates reset button to play another game*/
 let reset = () => {
     const resetBtn = document.createElement('button');
     scoreBoard.appendChild(resetBtn);
@@ -74,7 +52,15 @@ let reset = () => {
     })
 }
 
-/*create rps buttons and function to play round */
+/*disables button once score is reached*/
+let endGame = ()=> {
+    let buttons = document.querySelectorAll('button'); 
+    buttons.forEach((button) => {
+        button.disabled = true;
+    })
+    reset();
+}
+/*plays a 5 round game of rock, paper, scissors */
 playerScore = 0;
 computerScore = 0;
 const container = document.querySelector('scoreBoard');
